@@ -16,7 +16,7 @@ public:
 
     // To store the last time we rendered a frame
     // in case if you need
-    void displayedAFrameJustNow();
+    void updateLastFrameTime();
 
     // Get elapsed time as milliseconds
     std::chrono::milliseconds getElapsedTimeAsMilliseconds();
