@@ -12,7 +12,7 @@ void TimeController::updateTime()
     mTimeLast = std::chrono::high_resolution_clock::now();
 }
 
-void TimeController::displayedAFrameJustNow()
+void TimeController::updateLastFrameTime()
 {
     mFrameTimeLast = std::chrono::high_resolution_clock::now();
 }
