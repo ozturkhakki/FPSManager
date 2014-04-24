@@ -20,7 +20,7 @@ int main()
     TM.updateTime();
 
     // Output the elapsed time as double
-    std::cout << TM.getElapsedTime() << std::endl;
+    std::cout << "It took " << TM.getElapsedTime() << " milliseconds to output 10000 asterisks" << std::endl;
 
     // Output object
     std::cout << TM.makeCalcWithElapsedTime(objectVelocity) << std::endl;
