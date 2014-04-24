@@ -13,17 +13,20 @@ int main()
     TM.updateTime();
 
     // Output 10000 asterisks
-    for(unsigned int i = 0; i < 10000; ++i)
-        std::cout << "*" << std::endl;
+    for(unsigned int i = 0; i < 1000000; ++i)
+        std::cout << "*";
+
+    std::cout << std::endl;
 
     // Update time after process
     TM.updateTime();
 
     // Output the elapsed time as double
-    std::cout << "It took " << TM.getElapsedTime() << " milliseconds to output 10000 asterisks" << std::endl;
+    std::cout << "It took " << TM.getElapsedTime() << " milliseconds to output 1000000 asterisks" << std::endl;
 
     // Output object
     std::cout << TM.makeCalcWithElapsedTime(objectVelocity) << std::endl;
 
     return 0;
 }
+
