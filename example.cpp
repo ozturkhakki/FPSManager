@@ -7,7 +7,7 @@ int main()
 {
     // Created our class TM
     TimeController TM;
-    int objectVelocity = 100;
+    int objectVelocityPerSecond = 100;
 
     // Updating time
     TM.updateTime();
@@ -25,7 +25,7 @@ int main()
     std::cout << "It took " << TM.getElapsedTime() << " milliseconds to output 1000000 asterisks" << std::endl;
 
     // Output object
-    std::cout << TM.makeCalcWithElapsedTime(objectVelocity) << std::endl;
+    std::cout << TM.makeCalcWithElapsedTime(objectVelocityPerSecond) << std::endl;
 
     return 0;
 }
