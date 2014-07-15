@@ -1,54 +1,38 @@
-#ifndef TIMECONTROLLER_H
-#define TIMECONTROLLER_H
-
-// A class that is made to ease time calculations. Can
-// be applied to SFML, Allegro and SDL.
+#ifndef FPSMANAGER_H
+#define FPSMANAGER_H
 
 #include <chrono>
 
-class TimeController
+class FPSManager
 {
 public:
-    TimeController();
+    FPSManager();
 
-    // Use this function to update time
+    //  Update the time
     void updateTime();
-
-    // To store the last time we rendered a frame
-    // in case if you need
+    //  Update the last time that is drawn frame
     void updateLastFrameTime();
-
-    // Get elapsed time as milliseconds
-    std::chrono::milliseconds getElapsedTimeAsMilliseconds();
-
-    // Gets the elapsed time as double if you
-    // want to do some things with it
-    double getElapsedTime();
-
-    // Gets the elapsed time since you last
-    // rendered a frame as milliseconds
-    std::chrono::milliseconds getElapsedTimeSinceLastFrameAsMilliseconds();
-
-    // Gets the elapsed time since you last
-    // rendered a frame as double
-    double getElapsedTimeSinceLastFrame();
-
-    // Easy way to make calculations with elapsed time
-    double makeCalcWithElapsedTime(double someValue);
+    //  Get elapsed time between last time a frame drawn and
+    //  current time
+    float getElapsedTime();
+    //  Makes calculation according to a second
+    //
+    //  Lets say you have an object that moves 5
+    //  unit a second. If elapsed time is 100 miliseconds
+    //  you will get 0.5(0.100 * 5) unit.
+    float makeCalcWithElapsedTime(float someValue);
+    //  Set frame. This way you will get true if a new frame
+    //  should be drawn.
+    void setFPS(unsigned int fps);
+    //  Return true if a new frame should be drawn.
+    bool shouldDrawNewFrame();
 
 private:
-    // To store the last two times, we have two variables
-    //
-    // Initializing them immediately
-    std::chrono::high_resolution_clock::time_point mTimeLast{std::chrono::high_resolution_clock::now()};
-    std::chrono::high_resolution_clock::time_point mTimePrevious{mTimeLast};
+    float m_current;
+    float m_lastFrame;
+    unsigned int m_FPS{1000};
 
-    // Also adding one more variable to store last time
-    // we rendered a frame.
-    std::chrono::high_resolution_clock::time_point mFrameTimeLast{mTimeLast};
-
-    // To increase performance, other time variables' values
-    // are assigned mTimeLast's value
 };
 
-#endif // TIMECONTROLLER_H
+
+#endif // FPSMANAGER_H
