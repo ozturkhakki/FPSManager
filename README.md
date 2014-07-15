@@ -1,4 +1,4 @@
-TimeController
+FPSManager
 ==============
 
-A class which is based on c++11 to ease time based calculations and frame controlling that is compatible with SDL, Allegro and SFML.
+A class which is based on c++11 to ease frame managing and calculations
