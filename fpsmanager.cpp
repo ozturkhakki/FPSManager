@@ -3,6 +3,16 @@
 float FPSManager::m_lastFrame;
 float FPSManager::m_previousFrame;
 unsigned int FPSManager::m_FPS;
+float FPSManager::m_whenGameStarted;
+
+FPSManager::FPSManager()
+{
+    m_lastFrame = 0f;
+    m_previousFrame = 0f;
+    m_FPS = 1000;
+    m_whenGameStarted = std::chrono::duration_cast<
+            std::chrono::duration<float, std::milli>>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
+}
 
 void FPSManager::updateLastFrameTime()
 {
