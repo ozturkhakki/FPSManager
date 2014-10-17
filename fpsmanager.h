@@ -12,9 +12,6 @@ class FPSManager
 public:
     FPSManager();
     
-    //  Update the last time that is drawn frame
-    static void updateLastFrameTime();
-    
     //  Get elapsed time between last time a frame drawn and
     //  current time
     static float getElapsedTime();
@@ -35,6 +32,14 @@ public:
     
     //  Return true if a new frame should be drawn.
     static bool shouldDrawNewFrame();
+
+private:
+    //  Update the last time that is drawn frame
+    //
+    //  NOTE: It is no longer needed to call it from outside
+    //  shouldDrawNewFrame() will call it automaticly if
+    //  a new frame should be drawn
+    static void updateLastFrameTime();
 
 private:
     static float m_lastFrame;
