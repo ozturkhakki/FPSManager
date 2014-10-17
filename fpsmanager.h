@@ -49,7 +49,7 @@ private:
 private:
     static float m_lastFrame;
     static float m_previousFrame;
-    static unsigned int m_FPS{1000};
+    static unsigned int m_FPS;
     static float m_whenGameStarted;
 
 };
