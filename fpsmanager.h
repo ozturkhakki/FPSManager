@@ -19,8 +19,10 @@ public:
     //  Get current time 
     static float getTime();
     
-    // Get time since game started
-    static float timeSinceGameStarted();
+    //  Get time since program started
+    //
+    //  It will give you last frame minus program began time
+    static float timeSinceStarted();
     
     //  Makes calculation according to a second
     //
