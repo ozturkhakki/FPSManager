@@ -11,9 +11,6 @@ class FPSManager
 {
 public:
     FPSManager();
-
-    //  Update the time
-    static void updateTime();
     
     //  Update the last time that is drawn frame
     static void updateLastFrameTime();
@@ -28,7 +25,7 @@ public:
     //  Makes calculation according to a second
     //
     //  Lets say you have an object that moves 5
-    //  unit a second. If elapsed time is 100 miliseconds
+    //  units a second. If elapsed time is 100 miliseconds
     //  you will get 0.5(0.100 * 5) unit.
     static float makeCalcWithElapsedTime(float someValue);
     
@@ -40,8 +37,8 @@ public:
     static bool shouldDrawNewFrame();
 
 private:
-    static float m_current;
     static float m_lastFrame;
+    static float m_previousFrame;
     static unsigned int m_FPS{1000};
 
 };
