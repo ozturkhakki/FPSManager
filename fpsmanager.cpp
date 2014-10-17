@@ -1,19 +1,25 @@
 #include "fpsmanager.h"
 
-void FPSManager::updateTime()
-{
-    m_current = std::chrono::duration_cast<
-            std::chrono::duration<float, std::milli>>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
-}
+float FPSManager::m_lastFrame;
+float FPSManager::m_previousFrame;
+unsigned int FPSManager::m_FPS;
 
 void FPSManager::updateLastFrameTime()
 {
-    m_lastFrame = m_current;
+    m_previousFrame = m_lastFrame;
+    
+    m_lastFrame = std::chrono::duration_cast<
+            std::chrono::duration<float, std::milli>>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
 }
 
 float FPSManager::getElapsedTime()
 {
-    return m_current - m_lastFrame;
+    return m_lastFrame - m_previousFrame;
+}
+
+float FPSManager::getTime()
+{
+    return m_lastFrame;
 }
 
 float FPSManager::makeCalcWithElapsedTime(float someValue)
@@ -28,5 +34,10 @@ void FPSManager::setFPS(unsigned int fps)
 
 bool FPSManager::shouldDrawNewFrame()
 {
-    return (1000 / m_FPS) >= getElapsedTime();
+    if((1000 / m_FPS) >= getElapsedTime()){
+        updateLastFrameTime();
+        return true;
+    } else {
+        return false;
+    }
 }
