@@ -19,6 +19,9 @@ public:
     //  Get current time 
     static float getTime();
     
+    // Get time since game started
+    static float timeSinceGameStarted();
+    
     //  Makes calculation according to a second
     //
     //  Lets say you have an object that moves 5
@@ -45,6 +48,7 @@ private:
     static float m_lastFrame;
     static float m_previousFrame;
     static unsigned int m_FPS{1000};
+    static float m_whenGameStarted;
 
 };
 
