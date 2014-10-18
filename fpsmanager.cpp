@@ -29,7 +29,7 @@ float FPSManager::getElapsedTime()
 
 float FPSManager::getTime()
 {
-    return m_lastFrame;
+    return m_lastFrame - m_whenGameStarted;
 }
 
 float FPSManager::makeCalcWithElapsedTime(float someValue)
