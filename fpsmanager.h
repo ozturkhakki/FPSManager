@@ -12,11 +12,11 @@ class FPSManager
 public:
     FPSManager();
     
-    //  Get elapsed time between last time a frame drawn and
-    //  current time
+    //  Get elapsed time between last frame drawn time
+    //  and previous time a frame drawn
     static float getElapsedTime();
     
-    //  Get current time 
+    //  Get time when last frame drawn
     static float getTime();
     
     //  Get time since program started
@@ -39,7 +39,7 @@ public:
     static bool shouldDrawNewFrame();
 
 private:
-    //  Update the last time that is drawn frame
+    //  Update the last time, a frame is drawn
     //
     //  NOTE: It is no longer needed to call it from outside
     //  shouldDrawNewFrame() will call it automaticly if
