@@ -19,11 +19,6 @@ public:
     //  Get time when last frame drawn
     static float getTime();
     
-    //  Get time since program started
-    //
-    //  It will give you last frame minus program began time
-    static float timeSinceStarted();
-    
     //  Makes calculation according to a second
     //
     //  Lets say you have an object that moves 5
