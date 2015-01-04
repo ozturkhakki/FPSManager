@@ -10,7 +10,10 @@
 class FPSManager
 {
 public:
-    FPSManager();
+    // Initialize class variables
+    //
+    // Used without it class will cause runtime errors
+    static void Initialize(unsigned int FPS);
     
     //  Get elapsed time between last frame drawn time
     //  and previous time a frame drawn
@@ -26,10 +29,6 @@ public:
     //  you will get 0.5(0.100 * 5) unit.
     static float makeCalcWithElapsedTime(float someValue);
     
-    //  Set frame. This way you will get true if a new frame
-    //  should be drawn.
-    static void setFPS(unsigned int fps);
-    
     //  Return true if a new frame should be drawn.
     static bool shouldDrawNewFrame();
 
@@ -41,10 +40,16 @@ private:
     //  a new frame should be drawn
     static void updateLastFrameTime();
 
+    // Don't ask, name says it
+    static float timePassedSinceLastFrame();
+
+    // Get time passed since Epoch
+    static float getNow();
+
 private:
     static float m_lastFrame;
     static float m_previousFrame;
-    static unsigned int m_FPS;
+    static unsigned int m_FPSTime;
     static float m_whenGameStarted;
 
 };
