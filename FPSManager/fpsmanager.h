@@ -3,7 +3,7 @@
 
 #include <chrono>
 
-// It is better to have only one instance of this class
+// It is logical to have only one instance of this class
 // in the entire program. So, simply put, this is a static
 // class
 
@@ -19,7 +19,7 @@ public:
     //  and previous time a frame drawn
     static float getElapsedTime();
     
-    //  Get time when last frame drawn
+    //  Get time when last frame drawn since game started
     static float getTime();
     
     //  Makes calculation according to a second
@@ -44,7 +44,7 @@ private:
     static float timePassedSinceLastFrame();
 
     // Get time passed since Epoch
-    static float getNow();
+    static float getTimeSinceEpoch();
 
 private:
     static float m_lastFrame;

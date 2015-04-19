@@ -9,7 +9,7 @@ float FPSManager::m_whenGameStarted;
 void FPSManager::Initialize(unsigned int FPS)
 {
     m_FPSTime = 1000.f / FPS;
-    m_lastFrame = getNow();
+    m_lastFrame = getTimeSinceEpoch();
     m_previousFrame = m_lastFrame;
     m_whenGameStarted = m_lastFrame;
 }
@@ -43,15 +43,15 @@ void FPSManager::updateLastFrameTime()
 {
     m_previousFrame = m_lastFrame;
 
-    m_lastFrame = getNow();
+    m_lastFrame = getTimeSinceEpoch();
 }
 
 float FPSManager::timePassedSinceLastFrame()
 {
-    return getNow() - m_lastFrame;
+    return getTimeSinceEpoch() - m_lastFrame;
 }
 
-float FPSManager::getNow()
+float FPSManager::getTimeSinceEpoch()
 {
     return std::chrono::duration_cast<std::chrono::duration<
             float, std::milli>>(std::chrono::steady_clock::now().time_since_epoch()).count();
